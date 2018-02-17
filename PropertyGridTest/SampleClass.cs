@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using PropertyGridEx;
 using System.ComponentModel;
 using System.Drawing.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using XmlSerialCtrl;
-using PropertyGridEx;
-using System.Windows.Forms.Design;
 
 namespace PropertyGridTest
 {
-	public class SampleClass : Serial
+	public class SampleClass : Serial<SampleClass>
 	{
 
 		#region プロパティ
@@ -99,17 +93,9 @@ namespace PropertyGridTest
 			TofuType = 1;
 			TofuType2 = 2;
 		}
-
+		
 		#endregion
 
-		#region メソッド(Serialクラスのオーバーロード)
-
-		public static SampleClass Load(string p_fileName )
-		{
-			
-			return Load<SampleClass>( p_fileName );
-		}
-		#endregion
 	}
 
 	// インターフェイス

@@ -11,7 +11,7 @@ using System.Reflection;
 namespace XmlSerialCtrl
 {
 	#region シリアライズ化基底クラス
-	public class Serial
+	public class Serial<T> where T: new() 
 	{
 		/// <summary>
 		/// 継承先クラスをシリアル化します。
@@ -45,7 +45,7 @@ namespace XmlSerialCtrl
 		/// <typeparam name="T">デシリアライズ対象クラス</typeparam>
 		/// <param name="file">ファイル名</param>
 		/// <returns></returns>
-		public static T Load<T>(string file) where T : new()
+		public static T Load(string file)
 
 		{
 
