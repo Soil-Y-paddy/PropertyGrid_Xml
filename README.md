@@ -22,6 +22,8 @@
 <dd>FileOpen</dd>
 </dl>
 
+![filename](https://user-images.githubusercontent.com/33775885/36342380-0768fec0-1441-11e8-8a9d-7b62d99b5bc5.png)
+
 ### 使い方
 
 1. 対象のプロパティに `Editor` 属性で、`FileOpenEditor` を指定する。
@@ -32,6 +34,8 @@
 <dt>エディタ</dt>
 <dd>FolderOpenEditor</dd>
 </dl>
+
+![dirname](https://user-images.githubusercontent.com/33775885/36342378-066c9130-1441-11e8-96be-93cc4068ad11.png)
 
 ### 使い方
 
@@ -45,6 +49,8 @@
 <dt>追加属性</dt>
 <dd>StringArray</dd>
 </dl>
+
+![combobox](https://user-images.githubusercontent.com/33775885/36342375-060a9a3e-1441-11e8-8c9a-bc67c1202bf2.png)
 
 ### 使い方
 
@@ -60,6 +66,8 @@
 <dd>InterfaceCollectionEditor</dd>
 </dl>
 
+![collectioneditor](https://user-images.githubusercontent.com/33775885/36342374-05c87d20-1441-11e8-932a-93cd232a1d0e.png)
+
 ### 使い方
 1. インターフェイスを実装したクラスを一つ以上準備する。
 2. 対象のプロパティ(List<インターフェイス> 型)に、`Editor` 属性で、`InterfaceCollectionEditor` を指定する。
@@ -74,6 +82,8 @@
 <dt>ダイアログのインターフェイス</dt>
 <dd>IPropertyDialog</dd>
 </dl>
+
+![dialog](https://user-images.githubusercontent.com/33775885/36342377-063a6430-1441-11e8-8d72-08dbbefa0e81.png)
 
 ### 使い方
 1. インターフェイス `IPropertyDialog` を実装した、ダイアログを準備する。
@@ -98,6 +108,8 @@
 <dt>コントロールの基底クラス</dt>
 <dd>PropertyControl</dd>
 </dl>
+
+![dropdown](https://user-images.githubusercontent.com/33775885/36342379-069927cc-1441-11e8-952a-5efd5415b2fc.png)
 
 ### 使い方
 1.  `PropetyControl` を継承した、ユーザコントロールを準備する。
