@@ -79,7 +79,7 @@
 1. インターフェイス `IPropertyDialog` を実装した、ダイアログを準備する。
 	1. `IPropertyDialog.ResultValue` を通して、プロパティ値をやり取りする。
 	2. プロパティ設定に必要な項目はダイアログが表示する前のタイミングで準備する。
-	   項目の準備中は、メインフォームから`IPropertyDialog.Pause` をtrueに設定しておく。
+	*   項目の準備中は、メインフォームから`IPropertyDialog.Pause` をtrueに設定しておく。
 	3. `IPropertyDialog.Caption` はダイアログ表示時に、`Description`属性から値をうまく
 2. 対象のプロパティに `Editor` 属性で、`UserFormEditor` を指定する。
 3. フォームクラスで、ダイアログのインスタンスを、`IPropertyDialog`配列に格納する。
@@ -104,10 +104,10 @@
 	(継承元 `UserControl` を、`PropetyControl` に置き換える )
 	1. `PropetyControl.ResultValue` をオーバライドし、プロパティ値をやり取りする。
 	2. プロパティ設定に必要な項目はダイアログが表示する前のタイミングで準備する。
-	   項目の準備中は、メインフォームから`PropetyControl.Pause` をtrueに設定しておく。
-        3. ユーザ操作で値の変更が完了した場合、そのイベント(例えば、ラジオボタンのCheckedChenged など)
-	  で、CloseAction(sender, e) を呼びたして、コントロールを閉じる
-	  ※ null チェックも必要 → CloseAction?.Invoke( sender, e );
+	*   項目の準備中は、メインフォームから`PropetyControl.Pause` をtrueに設定しておく。
+	3. ユーザ操作で値の変更が完了した場合など、コントロールを閉じる場合は
+	* そのイベント(例えば、ラジオボタンのCheckedChenged など)で、`CloseAction(sender, e)` を呼び出す
+	* null チェックも必要 →  ` CloseAction?.Invoke( sender, e ); `
 2. 対象のプロパティに `Editor` 属性で、`UserCtrlEditor` を指定する。
 3. フォームクラスで、ダイアログのインスタンスを、`IPropertyDialog`配列に格納する。
 4. 4.の配列を`UserCtrlEditor.Controls｀に設定する
