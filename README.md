@@ -105,6 +105,9 @@
 	1. `PropetyControl.ResultValue` をオーバライドし、プロパティ値をやり取りする。
 	2. プロパティ設定に必要な項目はダイアログが表示する前のタイミングで準備する。
 	   項目の準備中は、メインフォームから`PropetyControl.Pause` をtrueに設定しておく。
+        3. ユーザ操作で値の変更が完了した場合、そのイベント(例えば、ラジオボタンのCheckedChenged など)
+	  で、CloseAction(sender, e) を呼びたして、コントロールを閉じる
+	  ※ null チェックも必要 → CloseAction?.Invoke( sender, e );
 2. 対象のプロパティに `Editor` 属性で、`UserCtrlEditor` を指定する。
 3. フォームクラスで、ダイアログのインスタンスを、`IPropertyDialog`配列に格納する。
 4. 4.の配列を`UserCtrlEditor.Controls｀に設定する
