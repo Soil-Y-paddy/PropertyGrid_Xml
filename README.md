@@ -9,7 +9,7 @@
 </dl>
 
 ### 共通事項
-プロパティグリッドコントロール `PropertyGrid` を拡張するための属性やクラスを準備した。
+プロパティグリッドコントロール `PropertyGrid` を拡張するための属性やクラスを準備した。<br>
 当該コントロールの基本的な使い方は、以下を参照のこと。
 * [PropertyGridコントロールの使い方 Dobon.net](https://dobon.net/vb/dotnet/control/propertygrid.html)
 * [プロパティ グリッドの表示 msn.microsoft.com](https://msdn.microsoft.com/ja-jp/library/bb165149.aspx?f=255&MSPPError=-2147217396)
@@ -39,8 +39,8 @@
 
 ### 使い方
 
-1. 対象のプロパティに `Editor` 属性で、`FileOpenEditor` を指定してください。
-2. `Description` 属性に説明を記述してください。
+1. 対象のプロパティに `Editor` 属性で、`FileOpenEditor` を指定する。
+2. `Description` 属性に説明を記述する。
 
 ## コンボボックスをプロパティに設定する汎用コンバータと追加属性
 <dl>
@@ -70,7 +70,7 @@
 
 ### 使い方
 1. インターフェイスを実装したクラスを一つ以上準備する。
-2. 対象のプロパティ(List<インターフェイス> 型)に、`Editor` 属性で、`InterfaceCollectionEditor` を指定する。
+2. 対象のプロパティ(例えば `List<インターフェイス> ` 型)に、`Editor` 属性で、`InterfaceCollectionEditor` を指定する。
 
 ## プロパティ値を設定するユーザダイアログを表示するプロパティエディタと追加属性
 
@@ -90,10 +90,10 @@
 	1. `IPropertyDialog.ResultValue` を通して、プロパティ値をやり取りする。
 	2. プロパティ設定に必要な項目はダイアログが表示する前のタイミングで準備する。
 	*   項目の準備中は、メインフォームから`IPropertyDialog.Pause` をtrueに設定しておく。
-	3. `IPropertyDialog.Caption` はダイアログ表示時に、`Description`属性から値をうまく
+	3. `IPropertyDialog.Caption` はダイアログ表示時に、`Description`属性値を用いて自動設定されます。
 2. 対象のプロパティに `Editor` 属性で、`UserFormEditor` を指定する。
 3. フォームクラスで、ダイアログのインスタンスを、`IPropertyDialog`配列に格納する。
-4. 4.の配列を`UserFormEditor.Dialogs｀に設定する
+4. 4.の配列を`UserFormEditor.Dialogs｀ に設定する
 5. 複数の異なるダイアログを使用する場合、`UserCtrlAttribute` 属性で、配列インデックスを指定する。
 
 
