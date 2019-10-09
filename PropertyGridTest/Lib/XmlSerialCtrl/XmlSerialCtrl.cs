@@ -186,7 +186,6 @@ namespace XmlSerialCtrl
 
 	public class SerlDic<T> : Dictionary<string, T> , IXmlSerializable
 	{
-		//ColorやFontのようなシリアライズできない場合true
 		public SerlDic()
 		{
 		}
@@ -199,7 +198,6 @@ namespace XmlSerialCtrl
 		void IXmlSerializable.ReadXml(XmlReader reader)
 		{
 
-
 			// 空のタグは取得しない。
 			if (reader.IsEmptyElement) return;
 
@@ -210,22 +208,14 @@ namespace XmlSerialCtrl
 				while (reader.NodeType != XmlNodeType.EndElement)
 				{
 
-					Type type = SerialMethods<T>.CheckElementType(reader.Name, false);
-					if (type == null)// 型判定NGの場合、次のタグに進む
-					{
-						reader.ReadStartElement();
-					}
-					else
-					{
 						// 型判定OKの場合、シリアライズし、リストに追加する
-						XmlSerializer serializer = new XmlSerializer(type);
+					XmlSerializer serializer = new XmlSerializer(typeof(DictionaryObject));
 						// 一旦辞書オブジェクトで受ける
 						DictionaryObject item = (DictionaryObject)serializer.Deserialize(reader);
 
 						Add(item.Key, item.Value);
 					}
 				}
-			}
 			finally
 			{
 				reader.ReadEndElement();
@@ -238,6 +228,7 @@ namespace XmlSerialCtrl
 
 			var ns = new XmlSerializerNamespaces();
 			ns.Add(String.Empty, String.Empty);
+
 			// 辞書の要素を全て処理
 			foreach (KeyValuePair<string, T> item in this)
 			{
@@ -252,7 +243,7 @@ namespace XmlSerialCtrl
 		}
 		#region "辞書オブジェクト"
 		[XmlRoot("Entry")]
-		class DictionaryObject
+		public class DictionaryObject
 		{
 			[XmlAttribute("Key")]
 			public string Key { get; set; }
