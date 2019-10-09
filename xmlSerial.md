@@ -1,5 +1,12 @@
 # <a id="c2">XMLシリアライズ・デシリアライズ</a>
 
+* 目次
+    * [ 基本的な使用方法 ](#s201)
+    * [ 属性 ](#s202)
+    * [ `Serial<T>` シリアライズ基底クラス ](#s21)
+    * [ `SerlList<T>` シリアライズ可能な汎用リスト ](#s22)
+    * [ `SerlDic<T>` シリアライズ可能な汎用辞書 ](#s23)
+
 <dl>
 <dt>名前空間</dt><dd>XmlSerialCtrl</dd>
 <dt>パス</dt><dd>Lib/XmlSerialCtrl/</dd>
@@ -68,6 +75,91 @@ public class Settings:Serial<Settings>
 		return Load(SETTING_FILE);
 	}
 }
+```
+
+## <a id="s202"> 属性 </a>
+
+1. XMLに出力しないプロパティは、XmlIgnore()属性を設定する。
+
+```csharp
+using System.Xml.Serialization;
+	public class Settings: Serial<Settings>
+	{
+
+		// 出力しない
+		[XmlIgnore()]
+		public string Hidden { get; set; }
+		
+		public Settings()
+		{
+		}
+
+	}
+```
+2. 要素名を変更する
+
+```csharp
+using System.Xml.Serialization;
+	public class Settings: Serial<Settings>
+	{
+		// 要素名の変更
+		[XmlElement("SampleData")]
+		public string Sample { get; set; }
+
+		public Settings()
+		{
+		}
+
+	}
+```
+    * 要素名が、Sample → SampleDataに変わります
+    * 日本語名でも大丈夫
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<SampleData>Sample</SampleData>
+</Settings>
+```
+
+  3) XMLの属性として出力する
+
+```csharp
+using System.Xml.Serialization;
+	public class Settings: Test2<Settings>
+	{
+		// 属性として出力
+		[XmlAttribute("ID")]
+		public int ID { get; set; }
+
+		public Test2()
+		{
+		}
+	}
+```
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<Test2 ID="123" />
+```
+
+  4) XMLのルート要素名を変更する
+
+```csharp
+[XmlRoot("テスト")]
+	public class Test2 : Serial<Test2>
+	{
+		
+		// 属性として出力
+		[XmlAttribute("ID")]
+		public int ID { get; set; }
+		
+		// 中略
+	}
+```
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<テスト ID="1000" />
 ```
 
 ## <a id="s21"> `Serial<T>` シリアライズ基底クラス</a>
