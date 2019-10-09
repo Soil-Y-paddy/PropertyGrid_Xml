@@ -13,7 +13,7 @@
         * [  `UserCtrlEditor` ユーザコントロールをインライン(ドロップダウン)表示するプロパティエディタ ](/PropertyGrid.md#s7)
     * [ XMLシリアライズ・デシリアライズ ](/xmlSerial.md#c2)
         * [ 基本的な使用方法 ](/xmlSerial.md#s201)
-	* [ 属性 ](/xmlSerial.md#s202)
+        * [ 属性 ](/xmlSerial.md#s202)
         * [ `Serial<T>` シリアライズ基底クラス ](/xmlSerial.md#s21)
         * [ `SerlList<T>` シリアライズ可能な汎用リスト ](/xmlSerial.md#s22)
         * [ `SerlDic<T>` シリアライズ可能な汎用辞書 ](/xmlSerial.md#s23)
