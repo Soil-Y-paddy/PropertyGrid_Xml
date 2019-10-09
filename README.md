@@ -14,6 +14,7 @@
     * [ XMLシリアライズ・デシリアライズ ](#c2)
         * [ `Serial<T>` シリアライズ基底クラス ](#s21)
         * [ `SerlList<T>` シリアライズ可能な汎用リスト ](#s22)
+	* [ `SerlDic<T>` シリアライズ可能な汎用辞書 ](#s23)
 	
 # <a id="c1">プロパティグリッドの拡張</a>
     
@@ -160,4 +161,17 @@
 * `T`はインターフェイスでも良いが、インターフェイスを含むすべての実装クラスを `public` にする必要がある。
 * また、実装クラスには、XmlType属性を付けてそのクラス名を明示すること。
 
+## <a id='s23'> `SerlDic<T>` シリアライズ可能な汎用辞書</a>
+### 使い方
+* `Dictionary<string,T>` と置き換える。
+* `T`は実クラス(インターフェイスは未対応)
 
+'public SerlDic<int> DicObj{get;set;}
+	
+XML構造例
+<DicObj>
+	<Entry Key="Key1">
+		<Value>1</Value>
+	</Entry>
+</DicObj>
+Entry , Key ,Value は変更不可
