@@ -118,7 +118,7 @@
 
 ### 使い方
 1.  `PropetyControl` を継承した、ユーザコントロールを準備する。
-	(継承元 `UserControl` を、`PropetyControl` に置き換える )
+	(継承元 `UserControl` を、`PropertyControl` に置き換える )
 	1. `PropetyControl.ResultValue` をオーバライドし、プロパティ値をやり取りする。
 	2. プロパティ設定に必要な項目はダイアログが表示する前のタイミングで準備する。
 	*   項目の準備中は、メインフォームから`PropetyControl.Pause` をtrueに設定しておく。
